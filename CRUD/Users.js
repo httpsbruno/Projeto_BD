@@ -96,7 +96,7 @@ class Users {
     try{
       const allUsers = await client.query("SELECT * FROM view_active_users");
       console.log(allUsers);
-      if(allUsers.rowCount == 0)  return res.status(400).json("ID não encontrado");
+      if(allUsers.rowCount == 0)  return res.status(400).json("Nenhum User encontrado");
       res.json(allUsers.rows);
     } catch(e){
       if (e.code == "42P01") return res.status(400).json("VIEW não existe!");
@@ -111,7 +111,7 @@ class Users {
     try{
       const allUsers = await client.query("SELECT * FROM view_deleted_users");
       console.log(allUsers);
-      if(allUsers.rowCount == 0)  return res.status(400).json("ID não encontrado");
+      if(allUsers.rowCount == 0)  return res.status(400).json("Nenhum User encontrado");
       res.json(allUsers.rows);
     } catch(e){
       if (e.code == "42P01") return res.status(400).json("VIEW não existe!");

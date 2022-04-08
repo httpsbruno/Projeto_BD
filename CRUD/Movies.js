@@ -94,7 +94,7 @@ class Movies {
       const movie = await client.query(query, values);
       //console.log(movie);
       if (movie.rowCount == 0) return res.status(400).json("ID não encontrado");
-      res.json('User excluído com sucesso!');
+      res.json('Movie excluído com sucesso!');
     } catch (e) {
       console.log(e);
      // if( e.code == "23505") return res.status(400).json("Email já existente");
@@ -111,7 +111,7 @@ class Movies {
     try{
       const allUsers = await client.query("SELECT * FROM view_active_movies");
       console.log(allUsers);
-      if(allUsers.rowCount == 0)  return res.status(400).json("ID não encontrado");
+      if(allUsers.rowCount == 0)  return res.status(400).json("Nenhum Movie encontrado");
       res.json(allUsers.rows);
     } catch(e){
       if (e.code == "42P01") return res.status(400).json("VIEW não existe!");
@@ -126,7 +126,7 @@ class Movies {
     try{
       const allUsers = await client.query("SELECT * FROM view_deleted_movies");
       console.log(allUsers);
-      if(allUsers.rowCount == 0)  return res.status(400).json("ID não encontrado");
+      if(allUsers.rowCount == 0)  return res.status(400).json("Nenhum Movie encontrado");
       res.json(allUsers.rows);
     } catch(e){
       if (e.code == "42P01") return res.status(400).json("VIEW não existe!");

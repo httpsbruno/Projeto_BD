@@ -8,7 +8,7 @@ app.get("/deletedmovies", crudMovies.deletedMovies);
 app.get("/:id", validation,  crudMovies.getMovie);
 app.post("/", validation, crudMovies.postMovie);
 app.put("/:id", validation, crudMovies.putMovie);
-app.delete(":id", validation, crudMovies.deleteMovie);
+app.delete("/:id", validation, crudMovies.deleteMovie);
 
 
 function validation(req, res, next){

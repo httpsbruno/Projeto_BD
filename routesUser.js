@@ -8,7 +8,7 @@ app.get("/deletedusers", crudUser.deletedUsers);
 app.get("/:id", validation,  crudUser.getUser);
 app.post("/", validation, crudUser.postUser);
 app.put("/:id", validation, crudUser.putUser);
-app.delete(":id", validation, crudUser.deleteUser);
+app.delete("/:id", validation, crudUser.deleteUser);
 
 
 function validation(req, res, next){
