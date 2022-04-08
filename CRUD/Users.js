@@ -7,9 +7,9 @@ class Users {
     const client = Client();
     await client.connect();
     try {
-      const query = `INSERT INTO users(username, email, password)
+      const query = `INSERT INTO users(name, email, password)
                      VALUES ($1,$2,$3)`;
-      const values = [newUser.username, newUser.email, newUser.password];
+      const values = [newUser.name, newUser.email, newUser.password];
       await client.query(query, values);
 
       console.log(newUser);
@@ -52,8 +52,8 @@ class Users {
     const client = Client();
     await client.connect();
     try {
-      const query = `UPDATE users SET username = $1, email = $2, password = $3, updated_at = CURRENT_TIMESTAMP WHERE id = $4`;
-      const values = [updateUser.username, updateUser.email, updateUser.password, id];
+      const query = `UPDATE users SET name = $1, email = $2, password = $3, updated_at = CURRENT_TIMESTAMP WHERE id = $4`;
+      const values = [updateUser.name, updateUser.email, updateUser.password, id];
       const user = await client.query(query, values);
       console.log(user);
       if (user.rowCount == 0) return res.status(400).json("ID não encontrado");

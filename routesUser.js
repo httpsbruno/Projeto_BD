@@ -27,8 +27,8 @@ function validation(req, res, next){
       if (body.email == "" || body.email == undefined) return res.status(400).json("E-mail vazio");
       if (!emailRegex.test(body.email)) return res.status(400).json("E-mail inválido");
   
-      if (body.username == "" || body.username == undefined) return res.status(400).json("Nome vazio");
-      if (!nameRegex.test(body.username)) return res.status(400).json("Nome inválido");
+      if (body.name == "" || body.name == undefined) return res.status(400).json("Nome vazio");
+      if (!nameRegex.test(body.name)) return res.status(400).json("Nome inválido");
   
       console.log(body.password);
       console.log(passwordRegex.test(body.password));
